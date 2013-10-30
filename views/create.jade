@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  form(action="/create", method="post")
+    label nombre del anime
+    input(name="name", class="form-control")
+    label wiki del anime
+    input(name="wiki", class="form-control")
+    br
+    input(type="submit", class="btn btn-primary", value="Guardar")
+    
+  a(href="/") Ir a la lista

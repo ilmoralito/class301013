@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  a(href="/create") Crea un anime
+
+  ol
+    each anime in animes
+      li 
+        a(href="#{anime.wiki}") #{anime.name}
+        a(href="/delete/#{anime.name}", class="delete") X
