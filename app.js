@@ -48,6 +48,26 @@ app.get("/delete/:name", function(req, res){
     res.redirect("/")
 })
 
+app.get("/edit/:name", function(req, res){
+    var name = req.params.name
+    
+    Anime.findOne({name:name}, function(err, anime){
+        res.render("edit", {anime:anime})
+    })
+})
+
+app.post("/update", function(req, res){
+    var id = req.body.id
+    var name = req.body.name
+    var wiki = req.body.wiki
+    
+    Anime.update({name:id},{name:name, wiki:wiki}, function(err){
+        console.log("Editado")
+    })
+    
+    res.redirect("/")
+})
+
 http.createServer(app).listen(3000, function(){
   console.log('Express server listening on port 3000');
 });

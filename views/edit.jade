@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h2 Actualiza los datos de #{anime.name}
+  
+  form(action="/update", method="post")
+    input(name="id", value="#{anime.name}", type="hidden")
+  
+    label Nombre
+    input(name="name", value="#{anime.name}", class="form-control")
+    
+    label Wiki
+    input(name="wiki", value="#{anime.wiki}", class="form-control")
+    
+    br  
+    
+    button(type="submit", class="btn btn-default") Confirmar
+    
+  a(href="/") Listar
